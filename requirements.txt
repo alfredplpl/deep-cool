@@ -1,2 +1,2 @@
 open_clip_torch
-opencv-python
+pandas

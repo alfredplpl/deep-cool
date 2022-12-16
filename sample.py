@@ -1,12 +1,9 @@
-import PIL.Image
 import torch
 import open_clip
 from PIL import Image
-import cv2
 import json
 from open_clip import tokenizer
 import numpy as np
-import itertools
 from functools import reduce
 
 device="cuda" # or cpu
@@ -15,17 +12,11 @@ model, _, preprocess = open_clip.create_model_and_transforms('ViT-H-14', pretrai
 cool_tags=[]
 images = []
 
-image=cv2.imread("a anime girl.png")
-image=cv2.resize(image,dsize=(224,224),interpolation=cv2.INTER_AREA)
-image=cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-image=Image.fromarray(image)
+image=Image.open("an anime girl.png")
 images.append(image)
 cool_tags.append([])
 
-image=cv2.imread("a manga girl.png")
-image=cv2.resize(image,dsize=(224,224),interpolation=cv2.INTER_AREA)
-image=cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
-image=Image.fromarray(image)
+image=Image.open("a manga girl.png")
 images.append(image)
 cool_tags.append([])
 
