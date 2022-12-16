@@ -1,6 +1,8 @@
+import PIL.Image
 import torch
 import open_clip
 from PIL import Image
+import cv2
 import json
 from open_clip import tokenizer
 import numpy as np
@@ -12,9 +14,19 @@ model, _, preprocess = open_clip.create_model_and_transforms('ViT-H-14', pretrai
 
 cool_tags=[]
 images = []
-images.append(Image.open("a anime girl.png"))
+
+image=cv2.imread("a anime girl.png")
+image=cv2.resize(image,dsize=(224,224),interpolation=cv2.INTER_AREA)
+image=cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+image=Image.fromarray(image)
+images.append(image)
 cool_tags.append([])
-images.append(Image.open("a manga girl.png"))
+
+image=cv2.imread("a manga girl.png")
+image=cv2.resize(image,dsize=(224,224),interpolation=cv2.INTER_AREA)
+image=cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+image=Image.fromarray(image)
+images.append(image)
 cool_tags.append([])
 
 TH=0.5
@@ -110,7 +122,7 @@ with torch.no_grad():
 text_probs = (100.0*image_features @ text_features.T).softmax(dim=-1)
 top_probs, top_labels = text_probs.cpu().topk(1, dim=-1)
 
-print([f'image {i}: {text_tags[top_labels[i][0]]},{top_probs[i][0]}' for i in range(len(images))])
+print([f'image {i}: {tags["actions"][top_labels[i][0]]},{top_probs[i][0]}' for i in range(len(images))])
 
 for i,tag in enumerate(cool_tags):
     if (top_probs[i] > TH):
@@ -127,7 +139,7 @@ with torch.no_grad():
 text_probs = (100.0*image_features @ text_features.T).softmax(dim=-1)
 top_probs, top_labels = text_probs.cpu().topk(1, dim=-1)
 
-print([f'image {i}: {text_tags[top_labels[i][0]]},{top_probs[i][0]}' for i in range(len(images))])
+print([f'image {i}: {tags["scenes"][top_labels[i][0]]},{top_probs[i][0]}' for i in range(len(images))])
 
 for i,tag in enumerate(cool_tags):
     if (top_probs[i] > TH):
