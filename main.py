@@ -62,7 +62,7 @@ for i,tag in enumerate(cool_tags):
     if(top_probs[i]>TH):
         tag.append(tags["cool type"][top_labels[i][0]])
 
-text_descriptions = [f"{label} would be in this picture." for label in tags["number of girls"]]
+text_descriptions = [f"{label} would be in this picture." for label in tags["number of people"]]
 text_tokens = tokenizer.tokenize(text_descriptions).to(device)
 
 with torch.no_grad():
@@ -72,11 +72,11 @@ with torch.no_grad():
 text_probs = (100.0*image_features @ text_features.T).softmax(dim=-1)
 top_probs, top_labels = text_probs.cpu().topk(1, dim=-1)
 
-print([f'image {i}: {tags["number of girls"][top_labels[i][0]]},{top_probs[i][0]}' for i in range(len(images))])
+print([f'image {i}: {tags["number of people"][top_labels[i][0]]},{top_probs[i][0]}' for i in range(len(images))])
 
 for i,tag in enumerate(cool_tags):
     if(top_probs[i]>TH):
-        tag.append(tags["number of girls"][top_labels[i][0]])
+        tag.append(tags["number of people"][top_labels[i][0]])
 
 for key, attribute in tags["attributes with no color"].items():
     text_descriptions = [f"This is a girl with {label}." for label in attribute]
