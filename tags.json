@@ -21,7 +21,8 @@
     ],
     "eyes": [
       "eyes",
-      "mono eye"
+      "mono eye",
+      "no eyes"
     ],
     "ware": [
       "swimsuit",
@@ -29,7 +30,11 @@
       "skirt",
       "kimono",
       "parker",
-      "t shirt"
+      "t shirt",
+      "school uniform",
+      "blazer",
+      "jacket",
+      "jeans"
     ]
   },
   "attributes with no color": {
@@ -38,6 +43,13 @@
       "large breasts",
       "medium breasts",
       "small breasts"
+    ],
+    "ears": [
+      "cat ears",
+      "horse ears",
+      "ears",
+      "an ear",
+      "no ears"
     ],
     "facial expression": [
       "neutral face expression",
@@ -55,23 +67,23 @@
     ],
     "mouth": [
       "open mouth",
-      "close mouth"
-    ],
-    "mouth": [
-      "open mouth",
-      "close mouth"
+      "close mouth",
+      "no mouth"
     ],
     "impression": [
       "beautiful",
       "cute",
-      "cool"
+      "cool",
+      "kawaii",
+      "moe"
     ]
   },
   "actions": [
     "sleeping",
     "looking at viewer",
     "standing",
-    "sitting"
+    "sitting",
+    "reading a book"
   ],
   "scenes": [
     "simple background",

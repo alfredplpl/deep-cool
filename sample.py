@@ -7,7 +7,8 @@ import numpy as np
 import itertools
 from functools import reduce
 
-model, _, preprocess = open_clip.create_model_and_transforms('ViT-H-14', pretrained='laion2b_s32b_b79k')
+device="cuda" # or cpu
+model, _, preprocess = open_clip.create_model_and_transforms('ViT-H-14', pretrained='laion2b_s32b_b79k',device=device)
 
 cool_tags=[]
 images = []
@@ -20,13 +21,13 @@ TH=0.5
 
 images = [preprocess(x) for x in images]
 
-image_input = torch.tensor(np.stack(images))
+image_input = torch.tensor(np.stack(images)).to(device)
 
 with open("tags.json","r") as f:
     tags=json.load(f)
 
 text_descriptions = [f"This is {label}." for label in tags["cool type"]]
-text_tokens = tokenizer.tokenize(text_descriptions)
+text_tokens = tokenizer.tokenize(text_descriptions).to(device)
 
 with torch.no_grad():
     image_features = model.encode_image(image_input).float()
@@ -44,7 +45,7 @@ for i,tag in enumerate(cool_tags):
         tag.append(tags["cool type"][top_labels[i][0]])
 
 text_descriptions = [f"{label} would be in this picture." for label in tags["number of girls"]]
-text_tokens = tokenizer.tokenize(text_descriptions)
+text_tokens = tokenizer.tokenize(text_descriptions).to(device)
 
 with torch.no_grad():
     text_features = model.encode_text(text_tokens).float()
@@ -63,7 +64,7 @@ for key, attribute in tags["attributes with no color"].items():
     text_descriptions = [f"This is a girl with {label}." for label in attribute]
     text_tags = [f"{label}" for label in attribute]
 
-    text_tokens = tokenizer.tokenize(text_descriptions)
+    text_tokens = tokenizer.tokenize(text_descriptions).to(device)
 
     with torch.no_grad():
         text_features = model.encode_text(text_tokens).float()
@@ -83,7 +84,7 @@ for key, attribute in tags["attributes with color"].items():
     text_descriptions = [f"This is a girl with {color} {label}." for label in attribute for color in tags["color"]]
     text_tags = [f"{color} {label}" for label in attribute for color in tags["color"]]
 
-    text_tokens = tokenizer.tokenize(text_descriptions)
+    text_tokens = tokenizer.tokenize(text_descriptions).to(device)
 
     with torch.no_grad():
         text_features = model.encode_text(text_tokens).float()
@@ -100,7 +101,7 @@ for key, attribute in tags["attributes with color"].items():
 
 text_descriptions = [f"This is a girl {label}." for label in tags["actions"]]
 
-text_tokens = tokenizer.tokenize(text_descriptions)
+text_tokens = tokenizer.tokenize(text_descriptions).to(device)
 
 with torch.no_grad():
     text_features = model.encode_text(text_tokens).float()
@@ -117,7 +118,7 @@ for i,tag in enumerate(cool_tags):
 
 text_descriptions = [f"This is a girl in {label}." for label in tags["scenes"]]
 
-text_tokens = tokenizer.tokenize(text_descriptions)
+text_tokens = tokenizer.tokenize(text_descriptions).to(device)
 
 with torch.no_grad():
     text_features = model.encode_text(text_tokens).float()
