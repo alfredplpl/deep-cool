@@ -6,12 +6,12 @@
     "three girls",
     "four girls",
     "a group of girls",
-    "an woman",
+    "a woman",
     "two women",
     "three women",
     "four women",
     "a group of women",
-    "a girl and an woman",
+    "a girl and a woman",
     "a boy",
     "two boys",
     "three boys",
@@ -23,6 +23,8 @@
     "four men",
     "a group of men",
     "a boy and a man",
+    "a boy and a girl",
+    "a man and a woman",
     "a family"
   ],
   "color": [
@@ -34,13 +36,15 @@
     "green",
     "brown",
     "blonde",
+    "pink",
+    "gold",
     "multicolored"
   ],
   "attributes with color": {
     "hair length": [
       "shaved head",
       "short hair",
-      "straight long hair"
+      "long hair"
     ],
     "eyes": [
       "eyes",

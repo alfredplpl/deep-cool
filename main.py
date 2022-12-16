@@ -16,13 +16,15 @@ parser.add_argument('device', type=str,
                     help='device name: cuda or cpu')
 parser.add_argument('batch_size', type=int,
                     help='batch size')
+parser.add_argument('threshold', type=float,
+                    help='threshold: 0.5 (in [0,1.0])')
 parser.add_argument('in_dir', type=str,
                     help='input directory')
 parser.add_argument('out_tsv', type=str,
                     help='filename-prompt pairs (tsv format)')
 args = parser.parse_args()
 
-TH=0.5
+TH=args.threshold
 device=args.device
 model, _, preprocess = open_clip.create_model_and_transforms('ViT-H-14', pretrained='laion2b_s32b_b79k',device=device)
 
