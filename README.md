@@ -1,5 +1,5 @@
 # deep-cool
-[![Open In Colab](https://colab.research.google.com/gist/alfredplpl/729f78163bc55e531cdebe801438f340/sample-code-for-deepcool.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/gist/alfredplpl/729f78163bc55e531cdebe801438f340/sample-code-for-deepcool.ipynb)
 image to cool prompt
 
 # sample
