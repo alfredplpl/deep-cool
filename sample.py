@@ -20,7 +20,7 @@ image=Image.open("a manga girl.png")
 images.append(image)
 cool_tags.append([])
 
-TH=0.5
+TH=0.4
 
 images = [preprocess(x) for x in images]
 

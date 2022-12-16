@@ -23,6 +23,8 @@
     "four men",
     "a group of men",
     "a boy and a man",
+    "a boy and a girl",
+    "a man and an woman",
     "a family"
   ],
   "color": [
@@ -34,6 +36,8 @@
     "green",
     "brown",
     "blonde",
+    "pink",
+    "gold",
     "multicolored"
   ],
   "attributes with color": {

@@ -22,7 +22,7 @@ parser.add_argument('out_tsv', type=str,
                     help='filename-prompt pairs (tsv format)')
 args = parser.parse_args()
 
-TH=0.5
+TH=0.4
 device=args.device
 model, _, preprocess = open_clip.create_model_and_transforms('ViT-H-14', pretrained='laion2b_s32b_b79k',device=device)
 
