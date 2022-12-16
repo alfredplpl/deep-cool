@@ -6,7 +6,7 @@ from open_clip import tokenizer
 import numpy as np
 from functools import reduce
 
-device="cuda" # or cpu
+device="cuda" if torch.cuda.is_available() else "cpu"
 model, _, preprocess = open_clip.create_model_and_transforms('ViT-H-14', pretrained='laion2b_s32b_b79k',device=device)
 
 cool_tags=[]
@@ -136,6 +136,15 @@ for i,tag in enumerate(cool_tags):
     if (top_probs[i] > TH):
         tag.append(tags["scenes"][top_labels[i][0]])
 
-print(cool_tags)
+prompts=[reduce(lambda a,b:a+", "+b,ct[1:],ct[0]) for ct in cool_tags]
 
-print([reduce(lambda a,b:a+", "+b,ct[1:],ct[0]) for ct in cool_tags])
+text_tokens = tokenizer.tokenize(prompts).to(device)
+
+with torch.no_grad():
+    text_features = model.encode_text(text_tokens).float()
+    text_features /= text_features.norm(dim=-1, keepdim=True)
+
+text_probs = (100.0*image_features @ text_features.T).softmax(dim=-1)
+top_probs, top_labels = text_probs.cpu().topk(1, dim=-1)
+
+print([f'image {i}: {prompts[top_labels[i][0]]},{top_probs[i][0]}' for i in range(len(images))])

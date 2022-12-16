@@ -37,6 +37,7 @@
     "brown",
     "blonde",
     "pink",
+    "purple",
     "gold",
     "multicolored"
   ],
@@ -61,7 +62,9 @@
       "school uniform",
       "blazer",
       "jacket",
-      "jeans"
+      "jeans",
+      "maid",
+      "nude"
     ]
   },
   "attributes with no color": {
@@ -88,7 +91,6 @@
       "smile",
       "fear",
       "surprise",
-      "contempt",
       "sadness",
       "anger"
     ],
@@ -100,13 +102,12 @@
     ],
     "mouth": [
       "open mouth",
-      "close mouth",
+      "closed mouth",
       "no mouth"
     ],
     "impressions": [
       "beautiful",
       "cute",
-      "cool",
       "kawaii",
       "moe"
     ]
@@ -116,6 +117,7 @@
     "looking at viewer",
     "standing",
     "sitting",
+    "crying",
     "reading a book"
   ],
   "scenes": [
