@@ -1,0 +1,84 @@
+{
+  "cool type": ["anime","manga","game"],
+  "number of girls" : ["a girl","two girls","three girls","four girls","a group of girls"],
+  "color": [
+    "black",
+    "white",
+    "gray",
+    "red",
+    "blue",
+    "green",
+    "brown",
+    "blonde",
+    "multicolored"
+  ],
+  "attributes with color": {
+    "hair length": [
+      "shaved head",
+      "short hair",
+      "medium short hair",
+      "long hair"
+    ],
+    "eyes": [
+      "eyes",
+      "mono eye"
+    ],
+    "ware": [
+      "swimsuit",
+      "dress",
+      "skirt",
+      "kimono",
+      "parker",
+      "t shirt"
+    ]
+  },
+  "attributes with no color": {
+    "breasts": [
+      "huge breasts",
+      "large breasts",
+      "medium breasts",
+      "small breasts"
+    ],
+    "facial expression": [
+      "neutral face expression",
+      "smile",
+      "fear",
+      "surprise",
+      "contempt",
+      "sadness",
+      "anger"
+    ],
+    "body parts": [
+      "upper body",
+      "full body",
+      "lower body"
+    ],
+    "mouth": [
+      "open mouth",
+      "close mouth"
+    ],
+    "mouth": [
+      "open mouth",
+      "close mouth"
+    ],
+    "impression": [
+      "beautiful",
+      "cute",
+      "cool"
+    ]
+  },
+  "actions": [
+    "sleeping",
+    "looking at viewer",
+    "standing",
+    "sitting"
+  ],
+  "scenes": [
+    "simple background",
+    "white background",
+    "blue background",
+    "plane",
+    "mountain",
+    "street"
+  ]
+}
