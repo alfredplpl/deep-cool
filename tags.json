@@ -16,8 +16,7 @@
     "hair length": [
       "shaved head",
       "short hair",
-      "medium short hair",
-      "long hair"
+      "straight long hair"
     ],
     "eyes": [
       "eyes",
@@ -38,6 +37,11 @@
     ]
   },
   "attributes with no color": {
+    "hair types": [
+      "shaved head",
+      "wavy hair",
+      "straight hair"
+    ],
     "breasts": [
       "huge breasts",
       "large breasts",
@@ -51,7 +55,7 @@
       "an ear",
       "no ears"
     ],
-    "facial expression": [
+    "facial expressions": [
       "neutral face expression",
       "smile",
       "fear",
@@ -71,7 +75,7 @@
       "close mouth",
       "no mouth"
     ],
-    "impression": [
+    "impressions": [
       "beautiful",
       "cute",
       "cool",
@@ -87,8 +91,10 @@
     "reading a book"
   ],
   "scenes": [
-    "simple background",
     "white background",
+    "black background",
+    "red background",
+    "green background",
     "blue background",
     "plane",
     "mountain",
